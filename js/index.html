@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <style>
+        canvas {
+          border: 1px solid #000;
+        }
+      </style> -->
+</head>
+<body>
+    <script>
+        // let height = 5;
+
+        // for (let i = 1; i <= height; i++) {
+        //     // Print spaces before the asterisks
+        //     for (let j = 1; j <= height - i; j++) {
+        //         document.write(" ");
+        //     }
+
+        //     // Print asterisks
+        //     for (let k = 1; k <= 2 * i - 1; k++) {
+        //         document.write("*");
+        //     }
+
+        //     // Move to the next line after each row
+        //     document.write("<br>");
+        // }
+        let height = 5;
+
+        for (let i = 1; i <= height; i++) {
+            // Print spaces before the asterisks
+            for (let j = 1; j <= height - i; j++) {
+                document.write("&nbsp;&nbsp;");
+            }
+
+            // Print asterisks
+            for (let k = 1; k <= 2 * i - 1; k++) {
+                document.write("*");
+            }
+
+            // Move to the next line after each row
+            document.write("<br>");
+        }
+    </script>
+
+      
+    <!-- <script>
+        let num = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        function evenoroddnum(){
+            for(let i = 0; i< num.length; i++){
+                if(num[i] %2 === 0){
+                    document.write(num[i]+ ' '+ 'is even');
+                }else{
+                    document.write(num[i]+ ' '+ 'is odd');
+                }
+
+            }
+        }
+        evenoroddnum(); 
+
+       
+        // let evenNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // let oddNumbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+        // console.log("Even Numbers:");
+        // for (let i = 0; i < evenNumbers.length; i++) {
+        //     if (evenNumbers[i] % 2 === 0) {
+        //       console.log(evenNumbers[i]);  
+        //     }
+            
+        // }
+
+        // // Print odd numbers
+        // console.log("Odd Numbers:");
+        // for (let i = 0; i < oddNumbers.length; i++) {
+        //     if (oddNumbers[i] % 2 !== 0) {
+        //         console.log(oddNumbers[i]);
+        //     }
+            
+        // }
+
+   
+
+
+
+
+    </script>-->
+<!-- <canvas id="myCanvas" width="400" height="400"></canvas>
+
+  <script>
+    // Get the canvas element and its context
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+
+    // Draw a rectangle
+    ctx.fillStyle = 'red';
+    ctx.fillRect(50, 50, 100, 50);
+
+    // Draw a circle
+    ctx.beginPath();
+    ctx.arc(250, 75, 50, 0, 2 * Math.PI);
+    ctx.fillStyle = 'blue';
+    ctx.fill();
+
+    // Draw a triangle
+    ctx.beginPath();
+    ctx.moveTo(300, 150);
+    ctx.lineTo(350, 200);
+    ctx.lineTo(250, 200);
+    ctx.closePath();
+    ctx.fillStyle = 'green';
+    ctx.fill();
+
+    // Draw a line
+    ctx.beginPath();
+    ctx.moveTo(50, 250);
+    ctx.lineTo(150, 250);
+    ctx.strokeStyle = 'purple';
+    ctx.lineWidth = 5;
+    ctx.stroke();
+  </script> -->
+
+</body>
+</html>

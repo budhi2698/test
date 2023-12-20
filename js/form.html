@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #formContainer {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 400px; /* Adjusted width */
+            text-align: left; /* Left-align form content */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 8px; /* Reduced margin */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: calc(100% - 16px); /* Adjusted width */
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: white;
+            cursor: pointer;
+            width: auto; /* Adjusted width */
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="formContainer">
+        <!-- <h2>Beautiful Form</h2> -->
+
+        <form id="myForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name">
+            <div class="error" id="nameError"></div>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email">
+            <div class="error" id="emailError"></div>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+            <div class="error" id="passwordError"></div>
+
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" name="confirmPassword">
+            <div class="error" id="confirmPasswordError"></div>
+
+            <label for="cid">CID:</label>
+            <input type="text" id="cid" name="cid">
+            <div class="error" id="cidError"></div>
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone">
+            <div class="error" id="phoneError"></div>
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('myForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            validateForm();
+        });
+
+        function validateForm() {
+            // Reset previous error messages
+            var errorElements = document.querySelectorAll('.error');
+            errorElements.forEach(function(element) {
+                element.innerHTML = '';
+            });
+
+            // Get form values
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var confirmPassword = document.getElementById('confirmPassword').value;
+            var cid = document.getElementById('cid').value;
+            var phone = document.getElementById('phone').value;
+
+            // Validate name
+            if (name.trim() === '') {
+                displayError('Name is required.', 'nameError');
+                return;
+            }
+
+            // Validate email
+            var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                displayError('please enter your valid email address.', 'emailError');
+                return;
+            }
+
+            // Validate password
+            if (password.trim() === '') {
+                displayError('Password is required.', 'passwordError');
+                return;
+            }
+
+            // Validate confirm password
+            if (confirmPassword.trim() === '') {
+                displayError('Confirm Password is required.', 'confirmPasswordError');
+                return;
+            }
+
+            if (password !== confirmPassword) {
+                displayError('Password and Confirm Password do not match.', 'confirmPasswordError');
+                return;
+            }
+
+            // cID
+            var idRegex = /^\d{11}$/;
+            if (!idRegex.test(cid)) {
+                displayError('CID is required. please enter 11 digits', 'cidError');
+                return;
+            }
+
+            // Validate phone number (basic validation for demonstration)
+            var phoneRegex = /^\d{8}$/;
+            if (!phoneRegex.test(phone)) {
+                displayError('Invalid phone number. Please enter 8 digits.', 'phoneError');
+                return;
+            }
+
+            // If validation passes, you can submit the form or perform other actions
+            alert('Form submitted successfully!');
+        }
+
+        function displayError(message, elementId) {
+            var errorElement = document.getElementById(elementId);
+            errorElement.innerHTML = message;
+        }
+    </script>
+</body>
+</html>
